@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>مختبريون | المنصة التعليمية للمختبريين</title>
+
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial,Tahoma,sans-serif;
+background:#f5f8fc;
+color:#172033;
+line-height:1.8;
+}
+
+header{
+background:linear-gradient(135deg,#063b87,#0876d1);
+color:white;
+padding:18px 6%;
+position:sticky;
+top:0;
+z-index:100;
+box-shadow:0 5px 20px #0002;
+}
+
+.nav{
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo{
+font-size:25px;
+font-weight:bold;
+}
+
+.logo span{
+margin-left:8px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-right:22px;
+font-size:14px;
+}
+
+.hero{
+padding:70px 7%;
+background:linear-gradient(180deg,#e8f3ff,#f5f8fc);
+}
+
+.hero-content{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:1.2fr .8fr;
+gap:40px;
+align-items:center;
+}
+
+.badge{
+display:inline-block;
+background:#d9ecff;
+color:#0759a8;
+padding:7px 15px;
+border-radius:30px;
+font-size:13px;
+font-weight:bold;
+}
+
+h1{
+font-size:48px;
+line-height:1.3;
+margin:18px 0;
+}
+
+.blue{
+color:#0876d1;
+}
+
+.hero p{
+font-size:18px;
+color:#68758a;
+}
+
+.search{
+margin-top:25px;
+display:flex;
+background:white;
+padding:7px;
+border-radius:15px;
+box-shadow:0 10px 30px #1d5f9b18;
+}
+
+.search input{
+flex:1;
+border:0;
+outline:0;
+padding:14px;
+font-size:15px;
+}
+
+button{
+border:0;
+cursor:pointer;
+}
+
+.search button{
+background:#0876d1;
+color:white;
+padding:12px 20px;
+border-radius:11px;
+font-weight:bold;
+}
+
+.hero-image{
+height:260px;
+border-radius:25px;
+background:linear-gradient(135deg,#0876d1,#10a5cf);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:110px;
+box-shadow:0 20px 50px #0876d130;
+}
+
+section{
+padding:60px 7%;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+}
+
+.title{
+margin-bottom:25px;
+}
+
+.title h2{
+font-size:30px;
+}
+
+.title p{
+color:#718096;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+
+.card{
+background:white;
+border:1px solid #e4eaf2;
+border-radius:20px;
+padding:23px;
+box-shadow:0 8px 25px #12345a0b;
+transition:.2s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 35px #12345a18;
+}
+
+.icon{
+width:55px;
+height:55px;
+background:#eaf4ff;
+border-radius:15px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:27px;
+margin-bottom:13px;
+}
+
+.card h3{
+font-size:20px;
+margin-bottom:5px;
+}
+
+.card p{
+font-size:14px;
+color:#6c788b;
+}
+
+.tags{
+margin-top:13px;
+}
+
+.tag{
+display:inline-block;
+background:#f0f4f8;
+color:#536276;
+padding:3px 9px;
+border-radius:20px;
+font-size:11px;
+margin-left:5px;
+}
+
+.tools{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+}
+
+.tool{
+background:white;
+border:1px solid #e4eaf2;
+border-radius:18px;
+padding:22px;
+text-align:center;
+}
+
+.tool div{
+font-size:35px;
+}
+
+.tool b{
+display:block;
+margin-top:7px;
+}
+
+.quiz{
+background:linear-gradient(135deg,#063b87,#0876d1);
+color:white;
+padding:32px;
+border-radius:25px;
+}
+
+.answers{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-top:20px;
+}
+
+.answer{
+background:#ffffff18;
+border:1px solid #ffffff40;
+color:white;
+padding:14px;
+border-radius:12px;
+text-align:right;
+font-size:15px;
+}
+
+.answer:hover{
+background:#ffffff30;
+}
+
+#result{
+display:none;
+background:white;
+color:#172033;
+padding:15px;
+border-radius:12px;
+margin-top:15px;
+}
+
+.about{
+background:#eaf4ff;
+text-align:center;
+border-radius:25px;
+padding:35px;
+}
+
+footer{
+background:#071d3b;
+color:#cbd7e8;
+padding:35px 7%;
+text-align:center;
+}
+
+footer strong{
+color:white;
+font-size:20px;
+}
+
+@media(max-width:800px){
+
+nav{
+display:none;
+}
+
+.hero-content{
+grid-template-columns:1fr;
+}
+
+h1{
+font-size:36px;
+}
+
+.cards{
+grid-template-columns:1fr 1fr;
+}
+
+.tools{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+@media(max-width:520px){
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.tools{
+grid-template-columns:1fr 1fr;
+}
+
+.answers{
+grid-template-columns:1fr;
+}
+
+.hero{
+padding-top:45px;
+}
+
+h1{
+font-size:32px;
+}
+
+.hero-image{
+height:200px;
+font-size:80px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+<span>🔬</span>
+مختبريون
+</div>
+
+<nav>
+<a href="#subjects">الأقسام</a>
+<a href="#tools">الأدوات</a>
+<a href="#quiz">اختبر نفسك</a>
+<a href="#about">عن المنصة</a>
+</nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div>
+
+<span class="badge">
+منصة تعليمية للمختبريين وطلاب المختبرات
+</span>
+
+<h1>
+تعلم المختبر
+<br>
+<span class="blue">بطريقة مختلفة.</span>
+</h1>
+
+<p>
+منصة تعليمية تجمع لك أساسيات التحاليل الطبية،
+العينات، الأجهزة، الصور المجهرية والمعلومات المختبرية
+بطريقة سهلة ومبسطة.
+</p>
+
+<div class="search">
+
+<input
+id="searchInput"
+placeholder="🔎 ابحث عن تحليل أو موضوع..."
+oninput="search()"
+>
+
+<button onclick="search()">
+بحث
+</button>
+
+</div>
+
+</div>
+
+
+<div class="hero-image">
+🔬
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="subjects">
+
+<div class="container">
+
+<div class="title">
+
+<h2>🧪 الأقسام التعليمية</h2>
+
+<p>
+اختر المجال الذي تريد تعلمه
+</p>
+
+</div>
+
+
+<div class="cards" id="cards">
+
+
+<div class="card" data-search="hematology cbc esr pt ptt d dimer دم">
+
+<div class="icon">🩸</div>
+
+<h3>Hematology</h3>
+
+<p>
+تعلم أساسيات أمراض الدم وCBC
+وفحوصات التخثر.
+</p>
+
+<div class="tags">
+<span class="tag">CBC</span>
+<span class="tag">ESR</span>
+<span class="tag">PT</span>
+<span class="tag">PTT</span>
+</div>
+
+</div>
+
+
+
+<div class="card" data-search="clinical chemistry glucose lft rft lipid كيمياء">
+
+<div class="icon">🧪</div>
+
+<h3>Clinical Chemistry</h3>
+
+<p>
+شرح أهم تحاليل الكيمياء السريرية
+ومعاني النتائج.
+</p>
+
+<div class="tags">
+<span class="tag">LFT</span>
+<span class="tag">RFT</span>
+<span class="tag">Glucose</span>
+</div>
+
+</div>
+
+
+
+<div class="card" data-search="microbiology culture gram bacteria بكتيريا">
+
+<div class="icon">🦠</div>
+
+<h3>Microbiology</h3>
+
+<p>
+البكتيريا والزرع والصبغات
+واختبارات الحساسية.
+</p>
+
+<div class="tags">
+<span class="tag">Culture</span>
+<span class="tag">Gram</span>
+</div>
+
+</div>
+
+
+
+<div class="card" data-search="microscopy parasitology urine stool مجهر طفيليات">
+
+<div class="icon">🔬</div>
+
+<h3>Microscopy</h3>
+
+<p>
+فحوصات البول والبراز والطفيليات
+والصور المجهرية.
+</p>
+
+<div class="tags">
+<span class="tag">Urine</span>
+<span class="tag">Stool</span>
+</div>
+
+</div>
+
+
+
+<div class="card" data-search="immunology serology crp rf aso ana ferritin مناعة">
+
+<div class="icon">🧬</div>
+
+<h3>Immunology & Serology</h3>
+
+<p>
+شرح الفحوصات المناعية والسيرولوجية
+بطريقة مبسطة.
+</p>
+
+<div class="tags">
+<span class="tag">CRP</span>
+<span class="tag">RF</span>
+<span class="tag">ANA</span>
+</div>
+
+</div>
+
+
+
+<div class="card" data-search="molecular pcr dna rna molecular diagnostics">
+
+<div class="icon">🧬</div>
+
+<h3>Molecular Diagnostics</h3>
+
+<p>
+مدخل إلى PCR وDNA وRNA
+والتشخيص الجزيئي.
+</p>
+
+<div class="tags">
+<span class="tag">PCR</span>
+<span class="tag">DNA</span>
+<span class="tag">RNA</span>
+</div>
+
+</div>
+
+
+
+<div class="card" data-search="specimen samples tubes serum plasma عينات">
+
+<div class="icon">💉</div>
+
+<h3>Specimen Collection</h3>
+
+<p>
+أنواع العينات والأنابيب والحفظ
+وأسباب رفض العينة.
+</p>
+
+<div class="tags">
+<span class="tag">Serum</span>
+<span class="tag">Plasma</span>
+<span class="tag">Tubes</span>
+</div>
+
+</div>
+
+
+
+<div class="card" data-search="laboratory instruments analyzers calibration qc أجهزة">
+
+<div class="icon">⚙️</div>
+
+<h3>Laboratory Instruments</h3>
+
+<p>
+مبادئ الأجهزة والمعايرة
+والـ Quality Control.
+</p>
+
+<div class="tags">
+<span class="tag">Calibration</span>
+<span class="tag">QC</span>
+</div>
+
+</div>
+
+
+
+<div class="card" data-search="hormones tsh d3 ferritin هرمونات">
+
+<div class="icon">🧫</div>
+
+<h3>Hormones & Special Tests</h3>
+
+<p>
+شرح الهرمونات والفحوصات الخاصة
+بطريقة سهلة.
+</p>
+
+<div class="tags">
+<span class="tag">TSH</span>
+<span class="tag">D3</span>
+<span class="tag">Ferritin</span>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="tools">
+
+<div class="container">
+
+<div class="title">
+
+<h2>📚 أدوات المختبري</h2>
+
+<p>
+أشياء مهمة تحتاجها أثناء الدراسة والعمل
+</p>
+
+</div>
+
+<div class="tools">
+
+<div class="tool">
+<div>📋</div>
+<b>القيم المرجعية</b>
+<small>مراجعة سريعة</small>
+</div>
+
+<div class="tool">
+<div>🧴</div>
+<b>أنابيب الدم</b>
+<small>اختيار العينة</small>
+</div>
+
+<div class="tool">
+<div>⚠️</div>
+<b>أخطاء شائعة</b>
+<small>أخطاء قبل التحليل</small>
+</div>
+
+<div class="tool">
+<div>🆚</div>
+<b>فرق بين تحليلين</b>
+<small>مقارنات مختبرية</small>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="quiz">
+
+<div class="container">
+
+<div class="quiz">
+
+<h2>🧠 اختبر معلوماتك</h2>
+
+<p>
+أي نوع من العينات يستخدم عادةً لفحص D-dimer؟
+</p>
+
+<div class="answers">
+
+<button class="answer" onclick="quiz(false)">
+A — Serum
+</button>
+
+<button class="answer" onclick="quiz(true)">
+B — Citrated Plasma
+</button>
+
+<button class="answer" onclick="quiz(false)">
+C — EDTA Whole Blood
+</button>
+
+<button class="answer" onclick="quiz(false)">
+D — Urine
+</button>
+
+</div>
+
+<div id="result"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="about">
+
+<div class="container">
+
+<div class="about">
+
+<h2>🔬 مختبريون</h2>
+
+<p>
+منصة تعليمية للمختبريين وطلاب التحليلات المرضية،
+تهدف إلى تبسيط المعلومات المختبرية وربط العلم بالتطبيق العملي.
+</p>
+
+<br>
+
+<button
+class="search button"
+style="background:#0876d1;color:white;padding:12px 20px;border-radius:10px"
+onclick="window.scrollTo({top:0,behavior:'smooth'})"
+>
+ابدأ التعلم
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+<strong>🔬 مختبريون</strong>
+
+<p>
+المنصة التعليمية للمختبريين وطلاب المختبرات
+</p>
+
+<p>
+© 2026 مختبريون
+</p>
+
+</footer>
+
+
+
+<script>
+
+function search(){
+
+let q=document
+.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
+
+let cards=document.querySelectorAll(".card");
+
+cards.forEach(function(card){
+
+let text=
+card.innerText.toLowerCase()
++
+card.dataset.search.toLowerCase();
+
+if(!q || text.includes(q)){
+
+card.style.display="block";
+
+}else{
+
+card.style.display="none";
+
+}
+
+});
+
+}
+
+
+function quiz(correct){
+
+let result=
+document.getElementById("result");
+
+result.style.display="block";
+
+if(correct){
+
+result.innerHTML=
+"✅ <b>إجابة صحيحة!</b><br>يُستخدم عادةً Plasma مُجمع في أنبوب يحتوي على Sodium Citrate لفحص D-dimer.";
+
+}else{
+
+result.innerHTML=
+"❌ <b>إجابة غير صحيحة.</b><br>الإجابة الصحيحة هي: Citrated Plasma.";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
