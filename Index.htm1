@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>مختبريون | موسوعة المختبرات الطبية</title>
+
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+:root{
+--primary:#0876d1;
+--dark:#063b87;
+--bg:#f4f8fc;
+--card:#fff;
+--text:#172033;
+--muted:#68758a;
+--border:#e1e8f0;
+--green:#16a34a;
+--red:#dc2626;
+--orange:#d97706;
+}
+
+body{
+font-family:Arial,Tahoma,sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.8;
+}
+
+body.dark{
+--bg:#09111e;
+--card:#111c2b;
+--text:#edf4ff;
+--muted:#aebbd0;
+--border:#26364d;
+}
+
+button,input,select{
+font-family:inherit;
+}
+
+button{
+cursor:pointer;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:linear-gradient(135deg,var(--dark),var(--primary));
+color:white;
+box-shadow:0 5px 25px #0003;
+}
+
+.nav{
+max-width:1250px;
+margin:auto;
+padding:13px 18px;
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.logo{
+font-size:24px;
+font-weight:bold;
+white-space:nowrap;
+}
+
+nav{
+display:flex;
+gap:18px;
+flex:1;
+justify-content:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-size:13px;
+}
+
+.iconBtn{
+background:#ffffff20;
+color:white;
+border:1px solid #ffffff30;
+border-radius:10px;
+width:40px;
+height:40px;
+}
+
+.hero{
+padding:70px 18px;
+background:linear-gradient(180deg,#e7f3ff,var(--bg));
+}
+
+body.dark .hero{
+background:linear-gradient(180deg,#0d2036,var(--bg));
+}
+
+.heroInside{
+max-width:1250px;
+margin:auto;
+display:grid;
+grid-template-columns:1.2fr .8fr;
+gap:45px;
+align-items:center;
+}
+
+.badge{
+display:inline-block;
+background:#dceeff;
+color:#0759a8;
+padding:6px 15px;
+border-radius:30px;
+font-size:12px;
+font-weight:bold;
+}
+
+body.dark .badge{
+background:#193754;
+color:#9bd2ff;
+}
+
+h1{
+font-size:50px;
+line-height:1.3;
+margin:15px 0;
+}
+
+.blue{
+color:var(--primary);
+}
+
+.hero p{
+font-size:18px;
+color:var(--muted);
+}
+
+.heroArt{
+height:280px;
+border-radius:30px;
+background:linear-gradient(135deg,var(--dark),#10a5cf);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:125px;
+}
+
+.search{
+display:flex;
+background:var(--card);
+border:1px solid var(--border);
+padding:6px;
+border-radius:15px;
+margin-top:22px;
+}
+
+.search input{
+flex:1;
+border:0;
+outline:0;
+background:transparent;
+color:var(--text);
+padding:13px;
+font-size:15px;
+}
+
+.search button,
+.primary{
+background:var(--primary);
+color:white;
+border:0;
+border-radius:10px;
+padding:12px 20px;
+font-weight:bold;
+}
+
+main{
+max-width:1250px;
+margin:auto;
+padding:45px 18px 70px;
+}
+
+section{
+margin-bottom:60px;
+scroll-margin-top:90px;
+}
+
+.sectionTitle{
+margin-bottom:22px;
+}
+
+.sectionTitle h2{
+font-size:30px;
+}
+
+.sectionTitle p{
+color:var(--muted);
+}
+
+.filters{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:20px;
+}
+
+.filters input,
+.filters select{
+background:var(--card);
+color:var(--text);
+border:1px solid var(--border);
+border-radius:10px;
+padding:10px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:16px;
+}
+
+.card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:19px;
+padding:21px;
+transition:.2s;
+}
+
+.card:hover{
+transform:translateY(-4px);
+box-shadow:0 12px 30px #12345a14;
+}
+
+.card h3{
+margin-bottom:5px;
+}
+
+.card p{
+font-size:14px;
+color:var(--muted);
+}
+
+.emoji{
+font-size:35px;
+margin-bottom:7px;
+}
+
+.tag{
+display:inline-block;
+background:#edf3f8;
+color:#536276;
+padding:2px 9px;
+border-radius:20px;
+font-size:11px;
+margin:3px;
+}
+
+body.dark .tag{
+background:#1c2b40;
+color:#c1ccda;
+}
+
+.testCard{
+cursor:pointer;
+}
+
+.mini{
+font-size:12px;
+color:var(--muted);
+margin-bottom:7px;
+}
+
+.blueSection{
+background:linear-gradient(135deg,var(--dark),var(--primary));
+color:white;
+padding:30px;
+border-radius:25px;
+}
+
+.blueSection .sectionTitle p{
+color:#dceaff;
+}
+
+.tubeTable{
+width:100%;
+border-collapse:collapse;
+background:var(--card);
+border-radius:15px;
+overflow:hidden;
+}
+
+.tubeTable th,
+.tubeTable td{
+padding:13px;
+border-bottom:1px solid var(--border);
+text-align:right;
+}
+
+.tubeTable th{
+background:var(--primary);
+color:white;
+}
+
+.tubeTable td{
+color:var(--muted);
+}
+
+.compare{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:17px;
+}
+
+.compare .card h3{
+color:var(--primary);
+}
+
+.microGrid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:17px;
+}
+
+.microCard{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:18px;
+overflow:hidden;
+}
+
+.microImage{
+height:180px;
+background:
+radial-gradient(circle at 30% 30%,#fff 0 3%,transparent 4%),
+radial-gradient(circle at 65% 55%,#b7e4ff 0 12%,transparent 13%),
+radial-gradient(circle at 45% 70%,#9bd5f2 0 8%,transparent 9%),
+#e4f4fb;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:70px;
+}
+
+.microInfo{
+padding:17px;
+}
+
+.microInfo p{
+font-size:13px;
+color:var(--muted);
+}
+
+.quiz{
+background:linear-gradient(135deg,var(--dark),var(--primary));
+color:white;
+padding:30px;
+border-radius:23px;
+}
+
+.question{
+background:#ffffff12;
+border:1px solid #ffffff30;
+padding:20px;
+border-radius:15px;
+margin-bottom:15px;
+}
+
+.answers{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:15px;
+}
+
+.answer{
+background:white;
+color:#172033;
+border:0;
+padding:12px;
+border-radius:10px;
+text-align:right;
+}
+
+.answer.correct{
+background:#bbf7d0;
+}
+
+.answer.wrong{
+background:#fecaca;
+}
+
+#quizResult{
+margin-top:15px;
+font-weight:bold;
+}
+
+.notice{
+background:#fff7ed;
+border:1px solid #fed7aa;
+color:#9a3412;
+padding:15px;
+border-radius:13px;
+font-size:13px;
+}
+
+body.dark .notice{
+background:#3a2515;
+border-color:#67421f;
+color:#ffd7aa;
+}
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:#0009;
+z-index:5000;
+padding:15px;
+align-items:center;
+justify-content:center;
+}
+
+.modalBox{
+width:min(850px,100%);
+max-height:90vh;
+overflow:auto;
+background:var(--card);
+color:var(--text);
+border-radius:20px;
+padding:28px;
+position:relative;
+}
+
+.close{
+position:absolute;
+left:15px;
+top:12px;
+border:0;
+border-radius:8px;
+padding:6px 10px;
+}
+
+.detailGrid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-top:20px;
+}
+
+.detail{
+border:1px solid var(--border);
+border-radius:12px;
+padding:13px;
+}
+
+.detail b{
+display:block;
+color:var(--primary);
+margin-bottom:3px;
+}
+
+footer{
+background:#071d3b;
+color:#cbd7e8;
+text-align:center;
+padding:40px 15px;
+}
+
+footer strong{
+font-size:22px;
+color:white;
+}
+
+.hidden{
+display:none!important;
+}
+
+@media(max-width:850px){
+
+nav{
+display:none;
+}
+
+.heroInside{
+grid-template-columns:1fr;
+}
+
+.grid,
+.microGrid{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+@media(max-width:550px){
+
+h1{
+font-size:36px;
+}
+
+.heroArt{
+height:200px;
+font-size:85px;
+}
+
+.grid,
+.microGrid,
+.compare{
+grid-template-columns:1fr;
+}
+
+.answers,
+.detailGrid{
+grid-template-columns:1fr;
+}
+
+main{
+padding:30px 13px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+🔬 مختبريون
+</div>
+
+<nav>
+<a href="#tests">الفحوصات</a>
+<a href="#samples">العينات</a>
+<a href="#micro">المجهر</a>
+<a href="#topics">المختبر</a>
+<a href="#quiz">الاختبارات</a>
+</nav>
+
+<button class="iconBtn" onclick="toggleDark()">🌙</button>
+
+</div>
+
+</header>
+
+
+<div class="hero">
+
+<div class="heroInside">
+
+<div>
+
+<span class="badge">
+الموسوعة التعليمية للمختبريين
+</span>
+
+<h1>
+كل ما يحتاجه
+<br>
+<span class="blue">المختبري.</span>
+</h1>
+
+<p>
+تعلم الفحوصات الطبية، العينات، الأنابيب،
+المجهر، الميكروبيولوجي، الأجهزة والجودة
+في منصة واحدة.
+</p>
+
+<div class="search">
+
+<input
+id="globalSearch"
+placeholder="🔎 ابحث عن CBC، Ferritin، بول، جهاز..."
+>
+
+<button onclick="searchAll()">
+بحث
+</button>
+
+</div>
+
+</div>
+
+<div class="heroArt">
+🧫
+</div>
+
+</div>
+
+</div>
+
+
+<main>
+
+
+<!-- الفحوصات -->
+
+<section id="tests">
+
+<div class="sectionTitle">
+
+<h2>🧪 موسوعة الفحوصات</h2>
+
+<p>
+اضغط على أي فحص للحصول على معلوماته.
+</p>
+
+</div>
+
+<div class="filters">
+
+<select id="category" onchange="renderTests()">
+
+<option value="all">كل الأقسام</option>
+<option value="Hematology">Hematology</option>
+<option value="Chemistry">Clinical Chemistry</option>
+<option value="Coagulation">Coagulation</option>
+<option value="Immunology">Immunology / Serology</option>
+<option value="Hormones">Hormones</option>
+<option value="Microbiology">Microbiology</option>
+<option value="Urinalysis">Urinalysis</option>
+<option value="Molecular">Molecular Diagnostics</option>
+
+</select>
+
+<input
+id="testSearch"
+placeholder="بحث عن فحص..."
+oninput="renderTests()"
+>
+
+</div>
+
+<div id="testList" class="grid"></div>
+
+</section>
+
+
+<!-- معلومات الفحوصات -->
+
+<section>
+
+<div class="blueSection">
+
+<div class="sectionTitle">
+
+<h2>📚 أهم مجالات المختبر</h2>
+
+<p>
+الأساسيات التي يحتاجها طالب المختبر والمختبري.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="emoji">🩸</div>
+<h3>Hematology</h3>
+<p>
+CBC، RBC، WBC، Platelets، ESR، لطاخة الدم ومؤشرات الدم.
+</p>
+</div>
+
+<div class="card">
+<div class="emoji">🧪</div>
+<h3>Clinical Chemistry</h3>
+<p>
+Glucose، LFT، RFT، Lipids، Enzymes، Electrolytes.
+</p>
+</div>
+
+<div class="card">
+<div class="emoji">🦠</div>
+<h3>Microbiology</h3>
+<p>
+Culture، Gram stain، Bacteria، Sensitivity.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- الأنابيب -->
+
+<section id="samples">
+
+<div class="sectionTitle">
+
+<h2>💉 العينات والأنابيب</h2>
+
+<p>
+مرجع سريع لاختيار العينة والأنبوب.
+</p>
+
+</div>
+
+<table class="tubeTable">
+
+<tr>
+
+<th>الأنبوب</th>
+<th>المضاف</th>
+<th>أمثلة</th>
+<th>العينة</th>
+
+</tr>
+
+<tr>
+<td>🟣 Lavender</td>
+<td>EDTA</td>
+<td>CBC</td>
+<td>Whole Blood</td>
+</tr>
+
+<tr>
+<td>🔵 Light Blue</td>
+<td>Sodium Citrate</td>
+<td>PT / PTT / D-dimer</td>
+<td>Citrated Plasma</td>
+</tr>
+
+<tr>
+<td>🔴 Red</td>
+<td>حسب النوع</td>
+<td>Serum tests</td>
+<td>Serum</td>
+</tr>
+
+<tr>
+<td>🟡 Gold / SST</td>
+<td>Gel + Clot Activator</td>
+<td>Chemistry / Hormones</td>
+<td>Serum</td>
+</tr>
+
+<tr>
+<td>🟢 Green</td>
+<td>Heparin</td>
+<td>بعض الكيمياء</td>
+<td>Plasma</td>
+</tr>
+
+</table>
+
+<div class="notice">
+⚠️ نوع الأنبوب ومتطلبات العينة قد تختلف حسب الفحص والجهاز والطريقة.
+اتبع دائمًا SOP وتعليمات الشركة المصنعة.
+</div>
+
+</section>
+
+
+<!-- المجهر -->
+
+<section id="micro">
+
+<div class="sectionTitle">
+
+<h2>🔬 مكتبة المجهر</h2>
+
+<p>
+عينات ومظاهر مجهرية تعليمية.
+</p>
+
+</div>
+
+<div class="microGrid">
+
+<div class="microCard">
+
+<div class="microImage">
+🩸
+</div>
+
+<div class="microInfo">
+
+<h3>RBCs</h3>
+
+<p>
+كريات الدم الحمراء؛ تُدرس من حيث الحجم
+والشكل واللون والتغيرات المرضية.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="microCard">
+
+<div class="microImage">
+⚪
+</div>
+
+<div class="microInfo">
+
+<h3>WBCs</h3>
+
+<p>
+خلايا الدم البيضاء وتشمل Neutrophils،
+Lymphocytes، Monocytes، Eosinophils وBasophils.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="microCard">
+
+<div class="microImage">
+🟣
+</div>
+
+<div class="microInfo">
+
+<h3>Platelets</h3>
+
+<p>
+صفائح دموية صغيرة تظهر بين خلايا الدم
+في لطاخة الدم.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="microCard">
+
+<div class="microImage">
+💧
+</div>
+
+<div class="microInfo">
+
+<h3>Urine Sediment</h3>
+
+<p>
+يمكن أن يحتوي على RBC، WBC،
+epithelial cells، casts وcrystals.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="microCard">
+
+<div class="microImage">
+💠
+</div>
+
+<div class="microInfo">
+
+<h3>Urine Crystals</h3>
+
+<p>
+تختلف أشكال البلورات حسب نوعها
+ودرجة حموضة البول.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="microCard">
+
+<div class="microImage">
+🦠
+</div>
+
+<div class="microInfo">
+
+<h3>Bacteria</h3>
+
+<p>
+يمكن دراسة الشكل والترتيب بعد الصبغات
+المناسبة، ولا يعتمد التعرف النهائي على الشكل فقط.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="microCard">
+
+<div class="microImage">
+🪱
+</div>
+
+<div class="microInfo">
+
+<h3>Parasites</h3>
+
+<p>
+بيض الطفيليات والأكياس والأطوار المختلفة
+تحتاج إلى معرفة الصفات المجهرية المميزة.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="microCard">
+
+<div class="microImage">
+🧫
+</div>
+
+<div class="microInfo">
+
+<h3>Yeast / Fungi</h3>
+
+<p>
+يمكن مشاهدة بعض الخمائر والعناصر الفطرية
+حسب نوع العينة والصبغة.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="microCard">
+
+<div class="microImage">
+🧱
+</div>
+
+<div class="microInfo">
+
+<h3>Urinary Casts</h3>
+
+<p>
+قوالب تتشكل داخل الأنابيب الكلوية
+مثل Hyaline وRBC casts وغيرها.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="notice">
+📌 الصور الموجودة هنا توضيحية وليست صورًا مجهرية حقيقية.
+يمكن لاحقًا إضافة مكتبة صور حقيقية موثوقة لكل عينة مع التكبير والصبغة.
+</div>
+
+</section>
+
+
+<!-- مواضيع المختبر -->
+
+<section id="topics">
+
+<div class="sectionTitle">
+
+<h2>⚙️ كل ما يخص المختبر</h2>
+
+<p>
+أهم المجالات العملية التي يحتاجها المختبري.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="emoji">⚙️</div>
+<h3>Laboratory Instruments</h3>
+<p>
+مبادئ أجهزة CBC والكيمياء والمناعة والتخثر
+والأجهزة المساعدة.
+</p>
+</div>
+
+<div class="card">
+<div class="emoji">📊</div>
+<h3>Quality Control</h3>
+<p>
+QC، Calibration، Controls، الدقة، التكرارية
+ومراجعة النتائج غير الطبيعية.
+</p>
+</div>
+
+<div class="card">
+<div class="emoji">⚠️</div>
+<h3>Pre-analytical Errors</h3>
+<p>
+Hemolysis، Lipemia، العينة غير الكافية،
+الأنبوب الخطأ وتأخر النقل.
+</p>
+</div>
+
+<div class="card">
+<div class="emoji">🧼</div>
+<h3>Biosafety</h3>
+<p>
+معدات الوقاية، التعامل مع العينات،
+النفايات الحادة والانسكابات.
+</p>
+</div>
+
+<div class="card">
+<div class="emoji">🦠</div>
+<h3>Culture & Sensitivity</h3>
+<p>
+زرع العينات، التعرف على الميكروبات
+ومبادئ اختبار الحساسية.
+</p>
+</div>
+
+<div class="card">
+<div class="emoji">🧬</div>
+<h3>PCR & Molecular</h3>
+<p>
+DNA، RNA، Extraction، PCR،
+Controls وInterpretation.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- مقارنات -->
+
+<section>
+
+<div class="sectionTitle">
+
+<h2>🆚 فروقات مهمة</h2>
+
+<p>
+مواضيع يكثر السؤال عنها في المختبر.
+</p>
+
+</div>
+
+<div class="compare">
+
+<div class="card">
+
+<h3>CRP 🆚 ESR</h3>
+
+<p>
+كلاهما قد يرتفع في الالتهاب، لكنهما
+ليسَا الاختبار نفسه. CRP يتغير عادة
+بشكل أسرع، بينما ESR يتأثر بعوامل متعددة.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Serum 🆚 Plasma</h3>
+
+<p>
+Serum هو الجزء السائل بعد التخثر،
+أما Plasma فيُفصل من الدم الذي يحتوي
+على مانع تخثر.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Iron 🆚 Ferritin</h3>
+
+<p>
+Iron يقيس الحديد في الدم، بينما Ferritin
+يرتبط بمخزون الحديد، وقد يرتفع أيضًا
+مع الالتهاب.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>PT 🆚 aPTT</h3>
+
+<p>
+PT يرتبط أساسًا بالمسار الخارجي والمشترك،
+بينما aPTT يقيّم المسار الداخلي والمشترك.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- الاختبارات -->
+
+<section id="quiz">
+
+<div class="sectionTitle">
+
+<h2>🧠 اختبر نفسك</h2>
+
+<p>
+أسئلة مختبرية مع إجابات وشرح.
+</p>
+
+</div>
+
+<div class="quiz" id="quizBox"></div>
+
+</section>
+
+
+<section>
+
+<div class="card">
+
+<h2>📌 تنبيه علمي</h2>
+
+<p>
+الموقع تعليمي ولا يُستخدم بدل SOP أو تعليمات
+الشركة المصنعة أو المرجع العلمي المعتمد.
+القيم المرجعية وطرق العمل والعينات قد تختلف
+حسب المختبر والجهاز والطريقة.
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- نافذة الفحص -->
+
+<div class="modal" id="modal">
+
+<div class="modalBox">
+
+<button class="close" onclick="closeModal()">✕</button>
+
+<div id="modalContent"></div>
+
+</div>
+
+</div>
+
+
+<footer>
+
+<strong>🔬 مختبريون</strong>
+
+<p>
+موسوعة المختبرات الطبية للمختبريين وطلاب المختبرات
+</p>
+
+<p>
+© 2026 مختبريون
+</p>
+
+</footer>
+
+
+<script>
+
+const tests=[
+
+{
+name:"CBC",
+cat:"Hematology",
+sample:"Whole Blood",
+tube:"EDTA",
+use:"تقييم مكونات الدم الأساسية.",
+principle:"يقيس أو يحسب مؤشرات كريات الدم الحمراء والبيضاء والصفائح حسب تقنية الجهاز.",
+interpret:"Hb وRBC indices وWBC وPlatelets تُفسر مع الحالة السريرية وبقية النتائج.",
+pre:"تجنب التخثر وتأكد من هوية المريض وملاءمة العينة.",
+tags:"cbc blood hemoglobin wbc platelets"
+},
+
+{
+name:"ESR",
+cat:"Hematology",
+sample:"حسب الطريقة",
+tube:"حسب نظام المختبر",
+use:"مؤشر غير نوعي يمكن أن يرتفع في حالات التهابية.",
+principle:"قياس سرعة ترسب كريات الدم الحمراء خلال فترة محددة.",
+interpret:"ارتفاعه غير نوعي ويتأثر بعوامل متعددة.",
+pre:"استخدم الطريقة والأنبوب المعتمدين في مختبرك.",
+tags:"esr sedimentation inflammation"
+},
+
+{
+name:"PT",
+cat:"Coagulation",
+sample:"Citrated Plasma",
+tube:"Light Blue / Sodium Citrate",
+use:"تقييم المسار الخارجي والمشترك للتخثر.",
+principle:"قياس زمن تشكل الخثرة بعد إضافة الكواشف المناسبة.",
+interpret:"يُفسر عادة مع INR وبقية فحوص التخثر والسياق السريري.",
+pre:"الالتزام بنسبة الدم إلى citrate مهم.",
+tags:"pt inr coagulation"
+},
+
+{
+name:"aPTT / PTT",
+cat:"Coagulation",
+sample:"Citrated Plasma",
+tube:"Light Blue / Sodium Citrate",
+use:"تقييم المسار الداخلي والمشترك للتخثر.",
+principle:"اختبار تخثر يعتمد على كواشف مناسبة وفق طريقة المختبر.",
+interpret:"قد يتأثر بعوامل تخثر متعددة وببعض مضادات التخثر.",
+pre:"تأكد من جمع ونقل العينة وفق SOP.",
+tags:"ptt aptt coagulation"
+},
+
+{
+name:"D-dimer",
+cat:"Coagulation",
+sample:"Citrated Plasma",
+tube:"Light Blue / Sodium Citrate",
+use:"منتج تحلل الفيبرين يستخدم ضمن سياقات سريرية محددة.",
+principle:"اختبار تحليلي/مناعي للكشف عن نواتج تحلل الفيبرين المتشابك حسب المنصة.",
+interpret:"يجب تفسير النتيجة حسب الوحدات والطريقة والسياق السريري.",
+pre:"اتبع متطلبات فصل وحفظ البلازما الخاصة بطريقة المختبر.",
+tags:"d dimer fibrin coagulation"
+},
+
+{
+name:"Glucose",
+cat:"Chemistry",
+sample:"Serum / Plasma حسب الطريقة",
+tube:"حسب الطريقة",
+use:"قياس سكر الدم.",
+principle:"طرق إنزيمية متعددة حسب الجهاز والطريقة.",
+interpret:"تفسير النتيجة يعتمد على الصيام ووقت السحب والحالة السريرية.",
+pre:"التعامل مع العينة والزمن قد يكون مهمًا.",
+tags:"glucose sugar diabetes"
+},
+
+{
+name:"Creatinine",
+cat:"Chemistry",
+sample:"Serum / Plasma",
+tube:"حسب الطريقة",
+use:"جزء من تقييم وظائف الكلى.",
+principle:"طرق Jaffe أو طرق إنزيمية حسب المنصة.",
+interpret:"يفسر مع eGFR وبقية المعلومات السريرية.",
+pre:"اتبع متطلبات الطريقة.",
+tags:"creatinine kidney renal rft"
+},
+
+{
+name:"Urea",
+cat:"Chemistry",
+sample:"Serum / Plasma",
+tube:"حسب الطريقة",
+use:"جزء من تقييم وظائف الكلى والاستقلاب.",
+principle:"طرق إنزيمية شائعة تعتمد على urease.",
+interpret:"قد تتغير مع الجفاف والغذاء ووظيفة الكلى.",
+pre:"اتبع متطلبات الطريقة.",
+tags:"urea bun kidney"
+},
+
+{
+name:"ALT",
+cat:"Chemistry",
+sample:"Serum / Plasma",
+tube:"حسب الطريقة",
+use:"إنزيم يستخدم ضمن تقييم إصابة الخلايا الكبدية.",
+principle:"قياس النشاط الإنزيمي.",
+interpret:"يُفسر مع AST وبقية فحوص الكبد.",
+pre:"Hemolysis قد يؤثر حسب الطريقة.",
+tags:"alt liver lft"
+},
+
+{
+name:"AST",
+cat:"Chemistry",
+sample:"Serum / Plasma",
+tube:"حسب الطريقة",
+use:"إنزيم موجود في الكبد والعضلات وأنسجة أخرى.",
+principle:"قياس النشاط الإنزيمي.",
+interpret:"لا يفسر منفردًا.",
+pre:"انتبه لتأثير hemolysis حسب المنصة.",
+tags:"ast liver muscle"
+},
+
+{
+name:"ALP",
+cat:"Chemistry",
+sample:"Serum / Plasma",
+tube:"حسب الطريقة",
+use:"إنزيم يرتبط بالكبد والقنوات الصفراوية والعظم.",
+principle:"قياس النشاط الإنزيمي.",
+interpret:"يُفسر مع GGT والبيليروبين والسياق السريري.",
+pre:"القيم المرجعية تختلف حسب العمر والطريقة.",
+tags:"alp liver bone"
+},
+
+{
+name:"Bilirubin",
+cat:"Chemistry",
+sample:"Serum / Plasma",
+tube:"حسب الطريقة",
+use:"تقييم استقلاب وإطراح البيليروبين.",
+principle:"طرق تحليلية مختلفة حسب الجهاز.",
+interpret:"Total وDirect/Indirect تساعد في فهم النمط.",
+pre:"الحماية من الضوء قد تكون مطلوبة حسب الطريقة.",
+tags:"bilirubin liver jaundice"
+},
+
+{
+name:"CRP",
+cat:"Immunology",
+sample:"Serum / Plasma حسب الطريقة",
+tube:"حسب الطريقة",
+use:"مؤشر التهابي.",
+principle:"اختبار مناعي حسب المنصة.",
+interpret:"ارتفاعه غير نوعي ويحتاج سياقًا سريريًا.",
+pre:"اتبع متطلبات الجهاز والطريقة.",
+tags:"crp inflammation"
+},
+
+{
+name:"Ferritin",
+cat:"Immunology",
+sample:"Serum / Plasma حسب الطريقة",
+tube:"حسب الطريقة",
+use:"مؤشر مرتبط بمخزون الحديد.",
+principle:"Immunoassay حسب المنصة.",
+interpret:"قد يرتفع مع الالتهاب لذلك لا يفسر منفردًا.",
+pre:"يفسر مع بقية مؤشرات الحديد عند الحاجة.",
+tags:"ferritin iron anemia"
+},
+
+{
+name:"RF",
+cat:"Immunology",
+sample:"Serum",
+tube:"حسب الطريقة",
+use:"جسم مضاد يستخدم ضمن تقييم بعض الأمراض المناعية.",
+principle:"طرق مناعية مختلفة.",
+interpret:"ليس اختبارًا نوعيًا منفردًا لتشخيص الروماتويد.",
+pre:"التفسير سريري.",
+tags:"rf rheumatoid autoimmune"
+},
+
+{
+name:"ASO",
+cat:"Immunology",
+sample:"Serum",
+tube:"حسب الطريقة",
+use:"قياس أضداد مرتبطة بالتعرض لـ Streptolysin O.",
+principle:"اختبار مناعي حسب الطريقة.",
+interpret:"تفسر النتيجة مع الزمن والسياق السريري.",
+pre:"انتبه للوحدات والمرجع المستخدم.",
+tags:"aso streptolysin strep"
+},
+
+{
+name:"ANA",
+cat:"Immunology",
+sample:"Serum",
+tube:"حسب الطريقة",
+use:"فحص أجسام مضادة نووية.",
+principle:"IFA أو immunoassay حسب المختبر.",
+interpret:"العيار والنمط والسياق السريري مهمون.",
+pre:"لا تعتمد على الإيجابية وحدها.",
+tags:"ana lupus autoimmune"
+},
+
+{
+name:"TSH",
+cat:"Hormones",
+sample:"Serum / Plasma حسب الطريقة",
+tube:"حسب الطريقة",
+use:"تقييم وظيفة الغدة الدرقية.",
+principle:"Immunoassay.",
+interpret:"يُفسر غالبًا مع FT4 حسب الحالة.",
+pre:"بعض الأدوية والعوامل السريرية قد تؤثر.",
+tags:"tsh thyroid ft4"
+},
+
+{
+name:"Vitamin D",
+cat:"Hormones",
+sample:"Serum / Plasma حسب الطريقة",
+tube:"حسب الطريقة",
+use:"قياس 25-hydroxy vitamin D غالبًا.",
+principle:"Immunoassay أو LC-MS/MS حسب المنصة.",
+interpret:"الوحدات والمرجع المستخدم مهمان.",
+pre:"اتبع متطلبات الطريقة.",
+tags:"vitamin d d3"
+},
+
+{
+name:"Insulin",
+cat:"Hormones",
+sample:"Serum / Plasma حسب الطريقة",
+tube:"حسب الطريقة",
+use:"قياس الإنسولين في سياقات محددة.",
+principle:"Immunoassay.",
+interpret:"يفسر مع glucose والسياق السريري.",
+pre:"قد تتطلب بعض البروتوكولات صيامًا.",
+tags:"insulin diabetes"
+},
+
+{
+name:"C-peptide",
+cat:"Hormones",
+sample:"Serum / Plasma حسب الطريقة",
+tube:"حسب الطريقة",
+use:"مؤشر لإفراز الإنسولين الداخلي.",
+principle:"Immunoassay.",
+interpret:"يفسر مع glucose وتوقيت العينة.",
+pre:"اتبع متطلبات الفحص.",
+tags:"c peptide insulin pancreas"
+},
+
+{
+name:"Urinalysis",
+cat:"Urinalysis",
+sample:"Urine",
+tube:"Clean container",
+use:"فحص كيميائي ومجهري للبول.",
+principle:"Dipstick مع الفحص المجهري حسب البروتوكول.",
+interpret:"يُنظر إلى اللون والكثافة وpH والبروتين والدم وغيرها.",
+pre:"يفضل استخدام عينة مناسبة وحديثة حسب SOP.",
+tags:"urine ua urine analysis"
+},
+
+{
+name:"Urine Culture",
+cat:"Microbiology",
+sample:"Urine",
+tube:"Sterile container",
+use:"كشف نمو الميكروبات وتقييم الحساسية.",
+principle:"زرع على أوساط مناسبة ثم التعرف واختبار الحساسية.",
+interpret:"يفسر حسب نوع العينة والسياق السريري.",
+pre:"جمع العينة بطريقة معقمة مهم.",
+tags:"urine culture bacteria"
+},
+
+{
+name:"Gram Stain",
+cat:"Microbiology",
+sample:"حسب نوع العينة",
+tube:"حسب نوع العينة",
+use:"تصنيف أولي للبكتيريا حسب خصائص الجدار الخلوي.",
+principle:"صبغة تفريقية.",
+interpret:"تساعد في وصف Gram reaction والشكل والترتيب.",
+pre:"جودة اللطاخة والتثبيت والصبغ مهمة.",
+tags:"gram bacteria stain"
+},
+
+{
+name:"PCR",
+cat:"Molecular",
+sample:"حسب الاختبار",
+tube:"حسب الاختبار",
+use:"كشف أو تضخيم target جيني محدد.",
+principle:"Denaturation وAnnealing وExtension.",
+interpret:"يعتمد على target وcontrols وحساسية الاختبار.",
+pre:"منع التلوث والفصل بين مناطق العمل مهم.",
+tags:"pcr dna rna molecular"
+},
+
+{
+name:"HbA1c",
+cat:"Chemistry",
+sample:"Whole Blood",
+tube:"EDTA",
+use:"مؤشر للتعرض المتوسط للغلوكوز خلال فترة أطول.",
+principle:"طرق مثل HPLC أو immunoassay حسب المنصة.",
+interpret:"قد يتأثر ببعض اضطرابات كريات الدم.",
+pre:"اتبع متطلبات الطريقة.",
+tags:"hba1c diabetes glycated"
+}
+
+];
+
+
+function renderTests(){
+
+let cat=document.getElementById("category").value;
+
+let q=document
+.getElementById("testSearch")
+.value
+.toLowerCase()
+.trim();
+
+let list=document.getElementById("testList");
+
+let filtered=tests.filter(t=>{
+
+let categoryMatch=
+cat==="all" || t.cat===cat;
+
+let searchMatch=
+!q ||
+(t.name+" "+t.cat+" "+t.tags+" "+t.use)
+.toLowerCase()
+.includes(q);
+
+return categoryMatch && searchMatch;
+
+});
+
+list.innerHTML=filtered.map(t=>`
+
+<div class="card testCard"
+onclick="openTest(${tests.indexOf(t)})">
+
+<div class="emoji">🧪</div>
+
+<h3>${t.name}</h3>
+
+<div class="mini">
+${t.cat} • ${t.sample}
+</div>
+
+<p>
+${t.use}
+</p>
+
+<div>
+${t.tags.split(" ").slice(0,5)
+.map(x=>`<span class="tag">${x}</span>`)
+.join("")}
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+function openTest(i){
+
+let t=tests[i];
+
+document.getElementById("modalContent").innerHTML=`
+
+<h2>🧪 ${t.name}</h2>
+
+<div class="detailGrid">
+
+<div class="detail">
+<b>القسم</b>
+${t.cat}
+</div>
+
+<div class="detail">
+<b>العينة</b>
+${t.sample}
+</div>
+
+<div class="detail">
+<b>الأنبوب</b>
+${t.tube}
+</div>
+
+<div class="detail">
+<b>الاستخدام</b>
+${t.use}
+</div>
+
+<div class="detail">
+<b>المبدأ</b>
+${t.principle}
+</div>
+
+<div class="detail">
+<b>التفسير</b>
+${t.interpret}
+</div>
+
+<div class="detail">
+<b>قبل التحليل</b>
+${t.pre}
+</div>
+
+</div>
+
+<div class="notice">
+⚠️ هذه المعلومات تعليمية مختصرة.
+القيم المرجعية والوحدات وطريقة العمل تعتمد
+على الجهاز والطريقة وSOP المختبر.
+</div>
+
+`;
+
+document.getElementById("modal").style.display="flex";
+
+}
+
+
+function closeModal(){
+
+document.getElementById("modal").style.display="none";
+
+}
+
+
+function toggleDark(){
+
+document.body
